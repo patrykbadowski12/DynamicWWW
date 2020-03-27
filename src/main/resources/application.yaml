@@ -1,0 +1,23 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/backend?autoReconnect=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Zasxzasx1?
+
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id: 7os13eacg6cgsmhvhoatvi7u1i
+            client-secret: 10crjhbv7n180kqfn7jnhvlb6qthgmnf9irlc1d33sacj4j2f8ng
+            scope: openid
+#            identity-provider-url: https://dynamicwww.auth.us-east-2.amazoncognito.com
+#            response-type: code
+        provider:
+          cognito:
+            issuerUri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_899tyMZll
+            usernameAttribute: cognito:username
