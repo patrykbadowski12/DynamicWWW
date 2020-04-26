@@ -1,10 +1,11 @@
-package com.studia.entity;
+package com.studia.backend.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +15,8 @@ import javax.persistence.*;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)  //ctrl + spacja = podpowiada
-    private long id;
+    private String username;
     private String email;
+    private LocalDateTime registrationDate;
 
 }

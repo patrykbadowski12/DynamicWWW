@@ -7,8 +7,9 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 public class SecurityConfiguration {
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest().authenticated()
+        http.cors().disable().csrf().disable().authorizeRequests()
+                .anyRequest()
+                .permitAll()
                 .and()
                 .oauth2Login()
                 .and()
@@ -17,5 +18,4 @@ public class SecurityConfiguration {
                 .logoutSuccessUrl("https://www.google.com/")
                 .permitAll();
     }
-
 }

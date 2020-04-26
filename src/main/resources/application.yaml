@@ -12,12 +12,19 @@ spring:
       client:
         registration:
           cognito:
+            provider: cognito
             client-id: 7os13eacg6cgsmhvhoatvi7u1i
             client-secret: 10crjhbv7n180kqfn7jnhvlb6qthgmnf9irlc1d33sacj4j2f8ng
             scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/login/oauth2/code/cognito
 #            identity-provider-url: https://dynamicwww.auth.us-east-2.amazoncognito.com
 #            response-type: code
         provider:
           cognito:
-            issuerUri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_899tyMZll
+            authorizationUri: https://dynamicwww.auth.us-east-2.amazoncognito.com/oauth2/authorize
+            tokenUri: https://dynamicwww.auth.us-east-2.amazoncognito.com/oauth2/token
+            jwkSetUri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_899tyMZll/.well-known/jwks.json
+            user-info-uri: https://dynamicwww.auth.us-east-2.amazoncognito.com/oauth2/userInfo
+            #issuerUri: https://cognito-idp.us-east-2.amazonaws.com/us-east-2_899tyMZll
             usernameAttribute: cognito:username
