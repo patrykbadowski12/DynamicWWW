@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/dupa")
+@RequestMapping("/admin")
 @RequiredArgsConstructor
 public class AdminController {
 

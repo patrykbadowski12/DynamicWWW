@@ -11,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @NoArgsConstructor
+@Table(name = "book")
 public class BookEntity {
 
     @Id
@@ -20,8 +21,8 @@ public class BookEntity {
     private String author;
     private LocalDateTime releaseDate;
     private int totalPages;
-    @Column
-    @Enumerated
+    @CollectionTable(name = "book_categories")
+    @Enumerated(value = EnumType.STRING)
     @ElementCollection(targetClass = BookCategory.class)
     private List<BookCategory> categories;
 

@@ -14,7 +14,7 @@ public class BookService {
     private final BookRepository bookRepository;
 
     public List<BookEntity> getAllBooks(){
-        return (List<BookEntity>) bookRepository.findAll();
+        return bookRepository.findAll();
     }
 
     public BookEntity getBook(Long id) {

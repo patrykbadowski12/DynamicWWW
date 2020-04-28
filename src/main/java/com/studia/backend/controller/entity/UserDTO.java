@@ -2,10 +2,12 @@ package com.studia.backend.controller.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
-public class User {
+@NoArgsConstructor
+public class UserDTO {
     private String username;
-    private String role;
+    private String password;
 }
