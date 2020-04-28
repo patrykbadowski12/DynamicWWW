@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/backend?autoReconnect=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Zasxzasx1?
+
+jwt:
+  secret: javainuse
