@@ -1,6 +1,6 @@
 package com.studia.backend.service;
 
-import com.studia.backend.entity.DAOUser;
+import com.studia.backend.entity.UserEntity;
 import com.studia.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-    public DAOUser getUser(Long id){
-        return userRepository.findById(id).orElse(null);
+    public UserEntity getUser(String username){
+        return userRepository.findByUsername(username);
     }
 }

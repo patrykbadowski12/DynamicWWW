@@ -1,8 +1,10 @@
 package com.studia.backend.controller;
 
 import com.studia.backend.entity.BookEntity;
-import com.studia.backend.repository.BookRepository;
+import com.studia.backend.service.BookService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -10,10 +12,15 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AdminController {
 
-    private final BookRepository bookRepository;
+    private final BookService bookService;
 
     @PostMapping("/book")
-    public void createBook(@RequestBody BookEntity bookEntity){
-        bookRepository.save(bookEntity);
+    public ResponseEntity createBook(@RequestBody BookEntity bookEntity){
+        try {
+            bookService.saveBook(bookEntity);
+            return new ResponseEntity(HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.CONFLICT);
+        }
     }
 }

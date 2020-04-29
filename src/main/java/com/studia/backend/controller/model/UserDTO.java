@@ -1,4 +1,4 @@
-package com.studia.backend.controller.entity;
+package com.studia.backend.controller.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

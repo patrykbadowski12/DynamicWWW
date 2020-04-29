@@ -53,9 +53,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         // We don't need CSRF for this example
         httpSecurity.csrf().disable()
                 // dont authenticate this particular request
-                .authorizeRequests().antMatchers("/authenticate", "/register" , "/swagger-ui.html").permitAll()
-                .antMatchers("/user/**", "/admin/**").hasAuthority("ADMIN")
-                .antMatchers("/user/**").hasAuthority("USER")
+                .authorizeRequests().antMatchers("/authenticate", "/register").permitAll()
+                .and().authorizeRequests().antMatchers("/admin/**").hasAuthority("ADMIN")
+                .and().authorizeRequests().antMatchers("/user/**").authenticated()
                 // all other requests need to be authenticated
                         .anyRequest().authenticated().and().
                 // make sure we use stateless session; session won't be used to

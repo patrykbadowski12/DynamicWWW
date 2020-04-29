@@ -1,4 +1,4 @@
-package com.studia.backend.controller.entity;
+package com.studia.backend.controller.model;
 
 import java.io.Serializable;
 

@@ -20,17 +20,17 @@ public class BookEntity {
     private String title;
     private String author;
     private LocalDateTime releaseDate;
-    private int totalPages;
+    private int pages;
     @CollectionTable(name = "book_categories")
     @Enumerated(value = EnumType.STRING)
     @ElementCollection(targetClass = BookCategory.class)
     private List<BookCategory> categories;
 
-    public BookEntity(String title, String author, LocalDateTime releaseDate, int totalPages, List<BookCategory> categories) {
+    public BookEntity(String title, String author, LocalDateTime releaseDate, int pages, List<BookCategory> categories) {
         this.title = title;
         this.author = author;
         this.releaseDate = releaseDate;
-        this.totalPages = totalPages;
+        this.pages = pages;
         this.categories = categories;
     }
 }
