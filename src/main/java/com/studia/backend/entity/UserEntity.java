@@ -20,7 +20,6 @@ public class UserEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column
-    @UniqueElements
     private String username;
     @Column
     @JsonIgnore
