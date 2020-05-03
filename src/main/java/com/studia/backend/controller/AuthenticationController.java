@@ -1,6 +1,6 @@
 package com.studia.backend.controller;
 
-import com.studia.backend.configuration.JwtTokenUtil;
+import com.studia.backend.util.JwtTokenUtil;
 import com.studia.backend.controller.model.JwtRequest;
 import com.studia.backend.controller.model.JwtResponse;
 import com.studia.backend.controller.model.UserDTO;
@@ -8,7 +8,6 @@ import com.studia.backend.entity.UserEntity;
 import com.studia.backend.service.JwtUserDetailsService;
 import com.studia.backend.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.studia.backend.configuration;
+package com.studia.backend.util;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

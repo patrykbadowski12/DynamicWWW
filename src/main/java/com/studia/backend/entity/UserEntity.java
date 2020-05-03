@@ -1,14 +1,12 @@
 package com.studia.backend.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.studia.backend.util.BookCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @NoArgsConstructor

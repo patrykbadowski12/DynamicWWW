@@ -2,6 +2,8 @@ package com.studia.backend.controller;
 
 import com.studia.backend.entity.BookEntity;
 import com.studia.backend.service.BookService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ public class BookController {
     private final BookService bookService;
 
     @GetMapping("/books")
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity<List<BookEntity>> getBooks() {
         List<BookEntity> books = bookService.getAllBooks();
         if (!books.isEmpty()) {
@@ -25,6 +28,7 @@ public class BookController {
     }
 
     @GetMapping("/book/{id}")
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity<BookEntity> getBook(@PathVariable Long id) {
         BookEntity book = bookService.getBook(id);
         if (book != null) {
@@ -34,6 +38,7 @@ public class BookController {
     }
 
     @PostMapping("/book/borrow")
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity borrowBook(@RequestParam Long idBook, @RequestParam Long idUser) {
         try {
             bookService.borrowBook(idBook, idUser);

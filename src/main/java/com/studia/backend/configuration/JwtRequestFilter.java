@@ -1,6 +1,7 @@
 package com.studia.backend.configuration;
 
 import com.studia.backend.service.JwtUserDetailsService;
+import com.studia.backend.util.JwtTokenUtil;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
