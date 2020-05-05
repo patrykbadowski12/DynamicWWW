@@ -7,6 +7,8 @@ import com.studia.backend.controller.model.UserDTO;
 import com.studia.backend.entity.UserEntity;
 import com.studia.backend.service.JwtUserDetailsService;
 import com.studia.backend.service.UserService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.Authorization;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -55,6 +57,7 @@ public class AuthenticationController {
     }
 
     @GetMapping("/user")
+    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity<UserEntity> getUser(@RequestParam String username) {
         UserEntity user = userService.getUser(username);
         if (user != null) {
