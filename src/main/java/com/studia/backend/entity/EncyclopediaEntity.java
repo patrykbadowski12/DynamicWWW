@@ -21,4 +21,8 @@ public class EncyclopediaEntity {
     @ElementCollection(targetClass = EncyclopediaRegistrationEntity.class)
     private List<EncyclopediaRegistrationEntity> registration;
 
+    public EncyclopediaEntity(String title){
+        this.title = title;
+    }
+
 }

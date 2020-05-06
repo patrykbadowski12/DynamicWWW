@@ -29,6 +29,7 @@ public class AuthenticationController {
     private final JwtUserDetailsService userDetailsService;
     private final UserService userService;
 
+
     @PostMapping("/authenticate")
     public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
@@ -43,7 +44,11 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody UserDTO user) {
-        return ResponseEntity.ok(userDetailsService.save(user));
+        UserEntity userEntity = userDetailsService.save(user);
+        if(userEntity == null){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+        return ResponseEntity.ok(userEntity);
     }
 
     private void authenticate(String username, String password) throws Exception {

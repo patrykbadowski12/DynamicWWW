@@ -14,4 +14,13 @@ public class EncyclopediaService {
     public EncyclopediaEntity getEncyclopedia(Long id){
       return encyclopediaRepository.findById(id).orElse(null);
     }
+
+    public void saveEncyclopedia(String title) throws Exception{
+        EncyclopediaEntity encyclopediaEntity = new EncyclopediaEntity(title);
+        encyclopediaRepository.save(encyclopediaEntity);
+    }
+    public void deleteEncyclopedia(Long id) throws Exception{
+     encyclopediaRepository.deleteById(id);
+    }
 }
+

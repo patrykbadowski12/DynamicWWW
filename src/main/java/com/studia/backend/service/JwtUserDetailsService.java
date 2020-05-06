@@ -18,7 +18,7 @@ import java.util.Collection;
 public class JwtUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private UserRepository userDao;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder bcryptEncoder;
@@ -26,7 +26,7 @@ public class JwtUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        UserEntity user = userDao.findByUsername(username);
+        UserEntity user = userRepository.findByUsername(username);
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);
         }
@@ -40,10 +40,14 @@ public class JwtUserDetailsService implements UserDetailsService {
     }
 
     public UserEntity save(UserDTO user) {
-        UserEntity newUser = new UserEntity();
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        newUser.setRole("USER");
-        return userDao.save(newUser);
+        UserEntity userEntity =  userRepository.findByUsername(user.getUsername());
+        if(userEntity == null){
+            UserEntity newUser = new UserEntity();
+            newUser.setUsername(user.getUsername());
+            newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+            newUser.setRole("USER");
+            return userRepository.save(newUser);
+        }
+        return null;
     }
 }
