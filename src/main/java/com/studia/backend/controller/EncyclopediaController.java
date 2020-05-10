@@ -48,4 +48,5 @@ public class EncyclopediaController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
     }
+
 }
