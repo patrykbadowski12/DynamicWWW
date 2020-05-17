@@ -1,5 +1,6 @@
 package com.studia.backend.service;
 
+import com.studia.backend.entity.BookEntity;
 import com.studia.backend.repository.BookRepository;
 import com.studia.backend.repository.EncyclopediaRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,6 +14,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import java.util.List;
 
 
 @Service
@@ -37,7 +39,9 @@ public class AdminService {
         } catch (Exception e) {
             return;
         }
-        bookRepository.findAllByReleaseDateBetween(startDate,endDate);
+        List<BookEntity> allBooksFromPeriod = bookRepository.findAllByReleaseDateBetween(startDate,endDate);
+
+
     }
 
     public LocalDateTime convertToLocalDateTime(Date dateToConvert) {
