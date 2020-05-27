@@ -18,5 +18,6 @@ public class EncyclopediaRegistrationEntity {
     private String author;
     private Date date;
     private boolean verification;
+    private Long encyclopediaId;
 
 }
