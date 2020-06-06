@@ -35,7 +35,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/data/delete")
     @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity deleteData(){
         adminService.deleteData();
@@ -44,8 +44,8 @@ public class AdminController {
 
     @GetMapping("/book/statistic")
     @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
-    public ResponseEntity<Map<String, List<BookConvertObject>>> bookStatistic(@RequestParam String startDay, @RequestParam String endDay){
-        return new ResponseEntity<>(adminService.releaseBookStatistic(startDay,endDay),HttpStatus.OK);
+    public ResponseEntity<Map<String, List<BookConvertObject>>> bookStatistic(@RequestParam String startDate, @RequestParam String endDate){
+        return new ResponseEntity<>(adminService.releaseBookStatistic(startDate,endDate),HttpStatus.OK);
     }
 
     @GetMapping("/registration")
