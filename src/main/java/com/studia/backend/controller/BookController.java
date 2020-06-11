@@ -37,16 +37,5 @@ public class BookController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-
-    @PostMapping("/book/borrow")
-    @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
-    public ResponseEntity borrowBook(@RequestParam Long idBook, @RequestParam Long idUser) {
-        try {
-            bookService.borrowBook(idBook, idUser);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 }
 

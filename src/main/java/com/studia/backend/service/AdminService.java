@@ -31,8 +31,8 @@ public class AdminService {
     @Transactional
     public void deleteData() {
         bookRepository.deleteAll();
-        encyclopediaRepository.deleteAll();
         encyclopediaRegistrationRepository.deleteAll();
+        encyclopediaRepository.deleteAll();
     }
 
     public List<EncyclopediaRegistrationEntity> getRegistrationFalse() {

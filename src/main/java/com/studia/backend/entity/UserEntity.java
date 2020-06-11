@@ -25,9 +25,6 @@ public class UserEntity {
     @JsonIgnore
     private String password;
     private String role;
-    @CollectionTable(name = "borrow_books")
-    @ElementCollection(targetClass = BookEntity.class)
-    private List<BookEntity> borrowBooks;
 
 
 

@@ -35,7 +35,7 @@ public class AdminController {
         }
     }
 
-    @PostMapping("/data/delete")
+    @DeleteMapping("/data/delete")
     @ApiOperation(value = "", authorizations = { @Authorization(value="jwtToken") })
     public ResponseEntity deleteData(){
         adminService.deleteData();

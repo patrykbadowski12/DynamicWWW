@@ -7,6 +7,7 @@ import com.studia.backend.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -25,17 +26,8 @@ public class BookService {
     }
 
     public void saveBook(BookEntity bookEntity) throws Exception {
+        bookEntity.setReleaseDate(LocalDateTime.now());
         bookRepository.save(bookEntity);
     }
 
-    public void borrowBook(Long idBook, Long idUser) throws Exception {
-        BookEntity borrowBook = bookRepository.findById(idBook).orElse(null);
-        UserEntity user = userRepository.findById(idUser).orElse(null);
-        if(borrowBook != null && user != null){
-            user.getBorrowBooks().add(borrowBook);
-            userRepository.save(user);
-        } else {
-            throw new Exception("Can't find user or book");
-        }
-    }
 }
